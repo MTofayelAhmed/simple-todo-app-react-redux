@@ -1,4 +1,4 @@
-import { COLORCHANGED, STATUSCHANGED } from './actions';
+import { COLORCHANGED, STATUSCHANGED } from './actionTypes';
 import initialState from './initialState'
 
 
