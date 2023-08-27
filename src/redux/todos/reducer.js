@@ -33,7 +33,7 @@ const reducer = (state = initialState, action) => {
 
         return{
             ...todo,
-            completed: todo.completed
+            completed: !todo.completed
         }
       });
     case COLORSELECTED:
