@@ -11,11 +11,8 @@ const reducer = (state = initialState, action)=> {
     ...state,
     status: action.payload
  }
-
  case COLORCHANGED: 
        
-
-
 switch (action.payload.changeType) {
     case "added":
         return {
@@ -41,9 +38,7 @@ return state
  
 }
 
-            
-
-      
+             
          
     }
 
