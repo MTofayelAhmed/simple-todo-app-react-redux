@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { statusChanged } from "../redux/filters/actions";
+import { statusChanged, colorChanged } from "../redux/filters/actions";
 const numberOfTodo = (No_Of_Todo)=> {
     switch (No_Of_Todo) {
         case 0:
@@ -17,7 +17,8 @@ const Footer = () => {
     const dispatch = useDispatch()
 const todo = useSelector((state)=> state.todo)
 const filters = useSelector((state)=> state.filter)
-const {status, color}= filters
+console.log(filters)
+const {status, colors}= filters
 const todoRemaining =  todo.filter(singleTodo => !singleTodo.completed).length
 
 
@@ -25,7 +26,15 @@ const handleStatus = (status)=> {
 dispatch(statusChanged(status))
 }
 
-
+const handleColor = (color) => {
+    if(colors.includes(color)){
+       dispatch(colorChanged(color, "removed")) 
+    }
+    else{
+        dispatch(colorChanged(color, "added"))
+    }
+    
+}
 
 
     return (
@@ -40,13 +49,16 @@ dispatch(statusChanged(status))
             <li></li>
             <li></li>
             <li
-                className="h-3 w-3 border-2 border-green-500 md:hover:bg-green-500 rounded-full cursor-pointer bg-green-500"
+            onClick={()=> handleColor("green")}
+                className={`h-3 w-3 border-2 border-green-500 md:hover:bg-green-500   rounded-full cursor-pointer ${colors.includes("green") && "bg-green-500"} `}
             ></li>
             <li
-                className="h-3 w-3 border-2 border-red-500 md:hover:bg-red-500 rounded-full cursor-pointer"
+               onClick={()=> handleColor("red")}
+                className={`h-3 w-3 border-2 border-red-500 md:hover:bg-red-500 rounded-full cursor-pointer ${colors.includes("red") && "bg-red-500"}`}
             ></li>
             <li
-                className="h-3 w-3 border-2 border-yellow-500 md:hover:bg-yellow-500 rounded-full cursor-pointer"
+            onClick={handleColor("yellow")}
+                className={`h-3 w-3 border-2 border-yellow-500 md:hover:bg-yellow-500 rounded-full cursor-pointer ${colors.includes("yellow") && "bg-yellow-500"} `}
             ></li>
         </ul>
     </div>

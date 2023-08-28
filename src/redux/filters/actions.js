@@ -1,10 +1,10 @@
 import { COLORCHANGED, STATUSCHANGED } from "./actionTypes"
 
-export const colorChanged = (color, changeType)=> {
+export const colorChanged = (colors, changeType)=> {
     return {
         type: COLORCHANGED,
         payload: {
-            color,
+            colors,
             changeType
         }
     }
