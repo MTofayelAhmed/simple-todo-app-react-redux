@@ -17,7 +17,7 @@ const Footer = () => {
     const dispatch = useDispatch()
 const todo = useSelector((state)=> state.todo)
 const filters = useSelector((state)=> state.filter)
-console.log(filters)
+
 const {status, colors}= filters
 const todoRemaining =  todo.filter(singleTodo => !singleTodo.completed).length
 

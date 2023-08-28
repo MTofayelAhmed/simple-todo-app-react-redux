@@ -19,13 +19,13 @@ switch (action.payload.changeType) {
             ...state, 
             colors: [
                 ...state.colors,
-                action.payload.colors
+                action.payload.color
             ]
         }
     case "removed":
         return {
             ...state,
-            colors: state.colors.filter (existingColor => existingColor !== action.payload.colors)
+            colors: state.colors.filter (existingColor => existingColor !== action.payload.color)
         }
         
       default:
